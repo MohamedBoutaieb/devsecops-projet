@@ -1,0 +1,12 @@
+version: '3.1'
+
+services:
+
+  mongo:
+    image: mongo
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: slim
+      MONGO_INITDB_ROOT_PASSWORD: 28360788
+    ports:
+      - 27017:27017
