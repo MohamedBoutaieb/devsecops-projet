@@ -12,7 +12,7 @@ pipeline {
                 echo "I am testing the app"
                 withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS' , usernameVariable: 'USER')]){
                     sh 'docker  build -t slim637/devsecops-project:v-1.0 .'
-                    sh "docker login -u $USER $PASS"
+                    sh "echo $PASS | docker login -u $USER --password-stdin "
                     sh 'docker push slim637/devsecops-project:v-1.0'
                 }
             }
